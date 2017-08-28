@@ -36,8 +36,16 @@ void PetCalc(int iInitialLevel, int iTargetLevel, int &EssRequired, double &Gold
 		// count before adding levels 
 		GoldRequired += aGold[Level];
 		EssRequired += aEssence[Level];
-		Favor += aFavor[Level];
-		Blessing += aBlessing[Level];
+
+		// If blessing is checked, add blessing used
+		if (bBlessing) {
+			Blessing += aBlessing[Level];
+
+		// If Favor is checked, add favor used
+		}
+		if (bFavor) {
+			Favor += aFavor[Level];
+		}
 
 		// If random number is <= success rate % then
 		// pet level was successful
