@@ -32,9 +32,12 @@ void PetCalc(int iInitialLevel, int iTargetLevel, int &EssRequired, double &Gold
 
 		// generate random number between 1 and 100
 		rand = rNum->Next(1, 100);
-		// Add to gold & essence before adding levels 
+		// Add to gold, essence, favor, and blessing
+		// count before adding levels 
 		GoldRequired += aGold[Level];
 		EssRequired += aEssence[Level];
+		Favor += aFavor[Level];
+		Blessing += aBlessing[Level];
 
 		// If random number is <= success rate % then
 		// pet level was successful
@@ -47,10 +50,9 @@ void PetCalc(int iInitialLevel, int iTargetLevel, int &EssRequired, double &Gold
 
 			// If Blessing IS being used
 			else {
-				//Blessings used +=
-				Blessing += aBlessing[Level];
+				// generate number for proc blessing
 				rand = rNum->Next(1, 6);
-				//Level gained = +1, +2, or +3
+				// Level gained = +1, +2, or +3
 				Level += aBlessingProc[rand];
 			}
 		}
@@ -64,12 +66,6 @@ void PetCalc(int iInitialLevel, int iTargetLevel, int &EssRequired, double &Gold
 				// NOT using favor, Level decrease
 				if (!bFavor) {
 					Level--;
-				}
-
-				// Using Favor, no Level decrease
-				else {
-					// Favor used +=
-					Favor += aFavor[Level];
 				}
 			}
 		}
@@ -97,17 +93,16 @@ void PetCalc(int iInitialLevel, int iTargetLevel, int &EssRequired, double &Gold
 // Simulates # of stones to get to target stone with given Super Combination Percent
 // Returns # of stones it took & the simulated SC percentage
   void StoneCalc(int iInitialStone,  int iTargetStone, int iSCPercent, int &StonesRequired, float &ActualSC) {
-	int iNormalCombo = 70;
-	int iSuperCombo = 30;
-	StonesRequired = 44423;
+	int iNormalCombo = 0;
+	int iSuperCombo = 0;
+	StonesRequired = 0;
+	ActualSC = 0;
 
-	//
-	// TODO: Write logic for stone calc
-	//
+	
 
 
-	ActualSC = 200;
-   // ActualSC = ((iSuperCombo / (iNormalCombo + iSuperCombo)) * 100);
+	
+    ActualSC = ((iSuperCombo / (iNormalCombo + iSuperCombo)) * 100);
   }
 
 
