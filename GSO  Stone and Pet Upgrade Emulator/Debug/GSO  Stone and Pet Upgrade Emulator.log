@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GSO  Stone and Pet Upgrade Emulator.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  MyForm1.cpp
+e:\cody\documents\visual studio 2017\projects\gso  stone and pet upgrade emulator\gso  stone and pet upgrade emulator\MyForm1.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+e:\cody\documents\visual studio 2017\projects\gso  stone and pet upgrade emulator\gso  stone and pet upgrade emulator\Calculations.h(123): warning C4101: 'pEx': unreferenced local variable
+e:\cody\documents\visual studio 2017\projects\gso  stone and pet upgrade emulator\gso  stone and pet upgrade emulator\Calculations.h(127): warning C4101: 'pEx': unreferenced local variable
+e:\cody\documents\visual studio 2017\projects\gso  stone and pet upgrade emulator\gso  stone and pet upgrade emulator\MyForm1.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+  GSO  Stone and Pet Upgrade Emulator.vcxproj -> E:\Cody\Documents\Visual Studio 2017\Projects\GSO  Stone and Pet Upgrade Emulator\Debug\GSO  Stone and Pet Upgrade Simulator.exe
