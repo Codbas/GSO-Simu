@@ -75,6 +75,7 @@ namespace GSOStoneandPetUpgradeSimulator {
 	private: System::Windows::Forms::CheckBox^  cbBlessing;
 	private: System::Windows::Forms::Label^  lFavor;
 	private: System::Windows::Forms::Label^  lBlessing;
+	private: System::Windows::Forms::Label^  lEndingLevel;
 
 	private:
 		/// <summary>
@@ -103,6 +104,7 @@ namespace GSOStoneandPetUpgradeSimulator {
 			this->lTargetStone = (gcnew System::Windows::Forms::Label());
 			this->lInitialStone = (gcnew System::Windows::Forms::Label());
 			this->tPets = (gcnew System::Windows::Forms::TabPage());
+			this->lEndingLevel = (gcnew System::Windows::Forms::Label());
 			this->lFavor = (gcnew System::Windows::Forms::Label());
 			this->lBlessing = (gcnew System::Windows::Forms::Label());
 			this->cbFavor = (gcnew System::Windows::Forms::CheckBox());
@@ -269,6 +271,7 @@ namespace GSOStoneandPetUpgradeSimulator {
 			// 
 			// tPets
 			// 
+			this->tPets->Controls->Add(this->lEndingLevel);
 			this->tPets->Controls->Add(this->lFavor);
 			this->tPets->Controls->Add(this->lBlessing);
 			this->tPets->Controls->Add(this->cbFavor);
@@ -290,6 +293,14 @@ namespace GSOStoneandPetUpgradeSimulator {
 			this->tPets->TabIndex = 1;
 			this->tPets->Text = L"Pet Leveling";
 			this->tPets->UseVisualStyleBackColor = true;
+			// 
+			// lEndingLevel
+			// 
+			this->lEndingLevel->AutoSize = true;
+			this->lEndingLevel->Location = System::Drawing::Point(197, 228);
+			this->lEndingLevel->Name = L"lEndingLevel";
+			this->lEndingLevel->Size = System::Drawing::Size(0, 13);
+			this->lEndingLevel->TabIndex = 14;
 			// 
 			// lFavor
 			// 
@@ -424,7 +435,7 @@ namespace GSOStoneandPetUpgradeSimulator {
 			this->MinimumSize = System::Drawing::Size(506, 382);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Stone & Pet Upgrade Simulator 0.7.0";
+			this->Text = L"Stone & Pet Upgrade Simulator 0.7.1";
 			this->tabs->ResumeLayout(false);
 			this->tStones->ResumeLayout(false);
 			this->tStones->PerformLayout();
@@ -442,6 +453,7 @@ namespace GSOStoneandPetUpgradeSimulator {
 			lPetGold->Text = "";
 			lBlessing->Text = "";
 			lFavor->Text = "";
+			lEndingLevel->Text = "";
 		}
 
 		// Clears Stone tab labels on error
@@ -462,8 +474,11 @@ private: System::Void bPetCalculate_Click(System::Object^  sender, System::Event
 	int iFavor = 0;
 	int iInitialLevel = 0;
 	int iTargetLevel = 0;
+	int iEndingLevel = 0;
 	bool bFavor = false;
 	bool bBlessing = false;
+	String^ sAttempts = "";
+	String^ sEssRequired = "";
 	String^ sGoldRequired = "";
 
 
@@ -524,13 +539,16 @@ private: System::Void bPetCalculate_Click(System::Object^  sender, System::Event
 		bFavor= cbFavor->Checked;
 		
 		// Returns iEssRequired, iGoldRequired, iAttempts by reference
-		PetCalc(iInitialLevel, iTargetLevel, iEssRequired, dGoldRequired, iAttempts, iBlessing, iFavor, bBlessing, bFavor);
+		PetCalc(iInitialLevel, iTargetLevel, iEssRequired, dGoldRequired, iAttempts, iBlessing, iFavor, iEndingLevel, bBlessing, bFavor);
 
-		// Format & convert Gold Required into String w/ decimals
+		// Format & convert numbers into strings with commas
 		sGoldRequired = String::Format("{0:n0}", dGoldRequired);
+		sAttempts = String::Format("{0:n0}", iAttempts);
+		sEssRequired = String::Format("{0:n0}", iEssRequired);
 
-		lPetResultsEss->Text = "Essence Required: " + iEssRequired;			
-		lPetResultsTries->Text = "Attempts: " + iAttempts;
+		lEndingLevel->Text = "Ending Level:" + iEndingLevel;
+		lPetResultsEss->Text = "Essence Required: " + sEssRequired;			
+		lPetResultsTries->Text = "Attempts: " + sAttempts;
 		lPetGold->Text = "Gold Required: " + sGoldRequired;
 		lBlessing->Text = "Gaia's Blessing: " + iBlessing;
 		lFavor->Text = "Gaia's Favor: " + iFavor;
