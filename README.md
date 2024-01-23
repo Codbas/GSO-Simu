@@ -1,4 +1,6 @@
 # GSO-Simu
+An old project that was created with no prior programming knowledge.
+
 GSO Pet &amp; Stone upgrade simulator
 
 This simulator is meant to simulate leveling pets in Grow Stone Online, as well as upgrading stone x to stone y.
@@ -12,7 +14,3 @@ It will display the number of stone x and what your actual super combination per
 Pet level simulation is currently completed. If you find any bugs or errors in the code, please let me know.
 Stone simulation is currently under development.
 
-
-
-Written and compiled in Visual Studio 2017 Community
-C++/CLI
